@@ -20,6 +20,6 @@ namespace LaCartonera.Web.Models
         public string? Hora_cierre { get; set; }
 
         [JsonPropertyName("cierre_por_ocasion_especial")]
-        public bool cierre_por_ocasion_especial { get; set; }
+        public bool Cierre_por_ocasion_especial { get; set; }
     }
 }

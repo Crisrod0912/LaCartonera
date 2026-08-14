@@ -1,5 +1,44 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model LocalConResennasModel
+
+<h1>@Model.Nombre</h1>
+
+<p>Descripción: @Model.Descripcion</p>
+
+<h2>Reseñas</h2>
+
+<div class="row">
+
+    @foreach (var resenna in Model.Resennas)
+    {
+        <div class="col-md-4">
+
+            <div class="card">
+
+                <div class="card-body">
+
+                    <h5 class="card-title">Calificación: @resenna.Calificacion estrellas</h5>
+
+                    <p class="card-text">Comentario: @resenna.Comentario</p>
+
+                    <div class="d-flex">
+
+                        <a class="btn btn-success " asp-area="" asp-controller="Resennas" asp-route-id="@resenna._id" asp-action="VerResenna"> Editar Reseña</a>
+
+                        <form asp-controller="Resennas" asp-action="EliminarResenna" method="post" style="display:inline;">
+
+                            <input type="hidden" name="id" value="@resenna._id" />
+
+                            <button type="submit" class="btn btn-warning" onclick="return confirm('¿Seguro que quieres eliminar esta Reseña?');">Eliminar Reseña</button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    }
+
+</div>
