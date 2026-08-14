@@ -1,0 +1,68 @@
+﻿@model ResennasModel
+
+<form asp-controller="Resennas" asp-action="CrearResenna">
+
+    <div class="container my-5">
+
+        <h2 class="text-center mb-4">Agregar Reseña</h2>
+
+        <div class="row justify-content-center">
+
+            <div class="col-md-8">
+
+                <div class="form-group mb-3">
+                    <input type="text" required class="form-control form-control-lg" asp-for="_id" placeholder="ID de la reseña" />
+                </div>
+
+                <div class="form-group mb-3">
+
+                    <label asp-for="IdUsuario">Usuario</label>
+
+                    <select asp-for="IdUsuario" class="form-control form-control-lg" required>
+                        <option value="">Seleccione un usuario</option>
+
+                        @foreach (var usuario in ViewBag.Usuarios)
+                        {
+                            <option value="@usuario.Value">@usuario.Text</option>
+                        }
+
+                    </select>
+
+                </div>
+
+                <input type="hidden" asp-for="IdLocal" />
+
+                <div class="form-group mb-3">
+
+                    <label asp-for="Calificacion">Calificación</label>
+
+                    <select asp-for="Calificacion" class="form-control form-control-lg">
+                        <option value="0">0 estrellas</option>
+                        <option value="1">1 estrella</option>
+                        <option value="2">2 estrellas</option>
+                        <option value="3">3 estrellas</option>
+                        <option value="4">4 estrellas</option>
+                        <option value="5">5 estrellas</option>
+                    </select>
+
+                </div>
+
+                <div class="form-group mb-3">
+
+                    <label asp-for="Comentario">Comentario</label>
+
+                    <textarea class="form-control form-control-lg" asp-for="Comentario" placeholder="Escriba su comentario aquí"></textarea>
+
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary btn-lg">Guardar Reseña</button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</form>
