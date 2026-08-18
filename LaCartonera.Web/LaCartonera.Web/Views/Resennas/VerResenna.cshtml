@@ -1,0 +1,52 @@
+﻿@model ResennasModel
+
+<form asp-controller="Resennas" asp-action="EditarResenna">
+
+    <div class="container my-5">
+
+        <h2 class="text-center mb-4">Ver y Editar Reseña</h2>
+
+        <div class="row justify-content-center">
+
+            <div class="col-md-8">
+
+                <div class="form-group mb-3">
+
+                    <label asp-for="Calificacion">Calificación</label>
+
+                    <select asp-for="Calificacion" class="form-control form-control-lg">
+                        <option value="0">0 estrellas</option>
+                        <option value="1">1 estrella</option>
+                        <option value="2">2 estrellas</option>
+                        <option value="3">3 estrellas</option>
+                        <option value="4">4 estrellas</option>
+                        <option value="5">5 estrellas</option>
+                    </select>
+
+                </div>
+
+                <div class="form-group mb-3">
+
+                    <label asp-for="Comentario">Comentario</label>
+
+                    <textarea class="form-control form-control-lg" asp-for="Comentario" placeholder="Escriba su comentario aquí"></textarea>
+
+                </div>
+
+                <input type="hidden" asp-for="_id" />
+
+                <input type="hidden" asp-for="IdUsuario" />
+
+                <input type="hidden" asp-for="IdLocal" />
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary btn-lg">Editar Reseña</button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</form>
